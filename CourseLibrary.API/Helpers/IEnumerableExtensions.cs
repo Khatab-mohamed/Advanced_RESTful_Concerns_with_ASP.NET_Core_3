@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace CourseLibrary.API.Helpers
 {
-    public class IEnumerableExtensions
+    public static class IEnumerableExtensions
     {
         public static IEnumerable<ExpandoObject> ShapeData<TSource>
-        (IEnumerable<TSource> source,
+        ( this IEnumerable<TSource> source,
             string fields)
         {
             if (source == null)
