@@ -68,7 +68,7 @@ namespace CourseLibrary.API.Controllers
         }
 
         [HttpGet("{authorId}", Name ="GetAuthor")]
-        public IActionResult GetAuthor(Guid authorId)
+        public IActionResult GetAuthor(Guid authorId, string fields)
         {
             var authorFromRepo = _courseLibraryRepository.GetAuthor(authorId);
 
@@ -77,7 +77,7 @@ namespace CourseLibrary.API.Controllers
                 return NotFound();
             }
              
-            return Ok(_mapper.Map<AuthorDto>(authorFromRepo));
+            return Ok(_mapper.Map<AuthorDto>(authorFromRepo).ShapeData(fields));
         }
 
         [HttpPost]
